@@ -1,23 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import { Route, Redirect, useHistory } from "react-router-dom"
+import { Login } from "./components/auth/Login"
+import { Register } from "./components/auth/Register"
+import { userStorageKey } from "./components/auth/authSettings"
+import { DropList } from "./components/drops/DropList"
+
+import { ApplicationViews } from './components/ApplicationViews';
 
 function App() {
+  const history = useHistory()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="ohDeer">
+      <head>
+      </head>
+      <header className="goodWood-header">
+        <h1>GOOD WOOD</h1>
       </header>
+      <div className="navBorder"></div>
+      <Route render={() => {
+        if (sessionStorage.getItem(userStorageKey)) {
+          return (
+            <>
+              <ApplicationViews />
+            </>
+          )
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }} />
+
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route path="/register">
+        <Register />
+      </Route>
     </div>
   );
 }
