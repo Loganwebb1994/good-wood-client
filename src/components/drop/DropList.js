@@ -24,13 +24,14 @@ export const DropList = () => {
   return (
   <>
   
-    
+    <button onClick={() => history.push("/create")}>Add Drop</button>
     <div className="DropList">
+    
       {
         drops.map(drop => {
           const currentProfile = profiles.find(profile => profile.id === drop.arborist_id)
-          console.log(currentProfile)
-          return <Drop key={drop.id} drop={drop} profile={currentProfile} />
+
+          return <Drop key={drop.id} drop={drop} />
         })
       }
     </div>
