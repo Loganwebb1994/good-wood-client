@@ -46,7 +46,6 @@ export const DropProvider = (props) => {
         },
         body: JSON.stringify(drop)
       })
-      .then(res => res.json())
     }
   
   const deleteDrop = (dropId) => {
