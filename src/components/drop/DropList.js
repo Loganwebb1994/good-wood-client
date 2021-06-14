@@ -6,8 +6,9 @@ import { Drop } from "./Drop"
 
 export const DropList = () => {
   const history = useHistory()
+  const isAdmin = JSON.parse(localStorage.getItem("admin"))
 
-  const { getProfiles, getDrops, profiles, drops} = useContext(DropContext)
+  const { getProfiles, getDrops, drops} = useContext(DropContext)
   
 
 
@@ -23,13 +24,13 @@ export const DropList = () => {
   
   return (
   <>
-  
-    <button onClick={() => history.push("/create")}>Add Drop</button>
+    {isAdmin === true ? <button className="addButton" onClick={() => history.push("/create")}>Add Drop</button> : "" }
+    
     <div className="DropList">
     
       {
         drops.map(drop => {
-          const currentProfile = profiles.find(profile => profile.id === drop.arborist_id)
+
 
           return <Drop key={drop.id} drop={drop} />
         })
