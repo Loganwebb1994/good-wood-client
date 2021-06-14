@@ -27,6 +27,7 @@ export const Login = props => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem( "goodwood_user", res.token )
                     localStorage.setItem("goodwood_user_id", res.current_user)
+                    localStorage.setItem("admin", res.admin)
                     history.push("/")
                 }
                 else {
@@ -43,7 +44,7 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Level Up</h1>
+                    <h1>Good Wood</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>

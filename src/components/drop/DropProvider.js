@@ -5,6 +5,7 @@ export const DropContext = createContext()
 export const DropProvider = (props) => {
   const [drops, setDrops] = useState([])
   const [profiles, setProfiles] = useState([])
+  const [profile, setProfile] = useState({})
 
   const getDrops = () => {
     return fetch("http://localhost:8000/drops",{
@@ -46,6 +47,7 @@ export const DropProvider = (props) => {
         },
         body: JSON.stringify(drop)
       })
+      .then(getDrops)
     }
   
   const deleteDrop = (dropId) => {
@@ -69,11 +71,20 @@ export const DropProvider = (props) => {
       .then(setProfiles)
   }
 
+  const getProfileById = (id) => {
+    return fetch(`http://localhost:8000/profiles/${id}`,{
+      headers:{
+        "Authorization": `Token ${localStorage.getItem("goodwood_user")}`
+    }
+    })
+    .then(res => res.json())
+    .then(setProfile)
+  }
   
 
   return(
     <DropContext.Provider value ={{
-      getDrops, drops, getDropById, addDrop, updateDrop, deleteDrop, getProfiles, profiles
+      getDrops, drops, getDropById, addDrop, updateDrop, deleteDrop, getProfiles, profiles, getProfileById, profile, setProfile
     }}>
       {props.children}
     </DropContext.Provider>

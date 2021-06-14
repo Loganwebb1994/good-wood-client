@@ -7,7 +7,9 @@ import { userStorageKey } from "./auth/authSettings"
 
 
 export const GoodWood = () => (
+    
     <>
+    <h1 className="title">Good Wood</h1>
         <Route render={() => {
             if (localStorage.getItem("goodwood_user")) {
                 return ( <>

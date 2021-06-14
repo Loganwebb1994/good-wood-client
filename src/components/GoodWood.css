@@ -13,6 +13,26 @@
   }
 }
 
+.drop{
+  border-style: solid;
+  border-width: medium;
+  max-width: 25%;
+  margin: 40px;
+  padding: 40px
+}
+.title{
+  align-self: center;
+  text-align: center;
+  
+}
+.addButton{
+  margin-left: 40px;
+}
+.DropList{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
