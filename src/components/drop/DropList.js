@@ -10,6 +10,11 @@ export const DropList = () => {
 
   const { getProfiles, getDrops, drops} = useContext(DropContext)
   
+  const handleLogout = () =>{
+    localStorage.clear()
+    history.push("/login")
+  }
+  
 
 
   useEffect(() => {
@@ -24,6 +29,7 @@ export const DropList = () => {
   
   return (
   <>
+    <button onClick={handleLogout}>Logout</button>
     {isAdmin === true ? <button className="addButton" onClick={() => history.push("/create")}>Add Drop</button> : "" }
     
     <div className="DropList">
