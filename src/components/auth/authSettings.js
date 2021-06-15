@@ -1,5 +1,5 @@
 export const authApi = {
-  localApiBaseUrl: "http://localhost:8000",
+  localApiBaseUrl: "https://good-wood-server.herokuapp.com/",
   endpoint: "profiles"
 }
 

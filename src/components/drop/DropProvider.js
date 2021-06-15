@@ -8,7 +8,7 @@ export const DropProvider = (props) => {
   const [profile, setProfile] = useState({})
 
   const getDrops = () => {
-    return fetch("http://localhost:8000/drops",{
+    return fetch("https://good-wood-server.herokuapp.com/drops",{
       headers:{
         "Authorization": `Token ${localStorage.getItem("goodwood_user")}`
     }
@@ -18,7 +18,7 @@ export const DropProvider = (props) => {
   }
 
   const getDropById = (id) => {
-    return fetch(`http://localhost:8000/drops/${id}`,{
+    return fetch(`https://good-wood-server.herokuapp.com/drops/${id}`,{
       headers:{
         "Authorization": `Token ${localStorage.getItem("goodwood_user")}`
     }
@@ -27,7 +27,7 @@ export const DropProvider = (props) => {
   }
   
   const addDrop = (drop) => {
-    return fetch("http://localhost:8000/drops", {
+    return fetch("https://good-wood-server.herokuapp.com/drops", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("goodwood_user")}`,
@@ -39,7 +39,7 @@ export const DropProvider = (props) => {
     }
 
   const updateDrop = (drop) => {
-    return fetch(`http://localhost:8000/drops/${drop.id}`, {
+    return fetch(`https://good-wood-server.herokuapp.com/drops/${drop.id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Token ${localStorage.getItem("goodwood_user")}`,
@@ -51,7 +51,7 @@ export const DropProvider = (props) => {
     }
   
   const deleteDrop = (dropId) => {
-    return fetch(`http://localhost:8000/drops/${dropId}`, {
+    return fetch(`https://good-wood-server.herokuapp.com/drops/${dropId}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("goodwood_user")}`,
@@ -62,7 +62,7 @@ export const DropProvider = (props) => {
 }
 
   const getProfiles = () => {
-    return fetch("http://localhost:8000/profiles",{
+    return fetch("https://good-wood-server.herokuapp.com/profiles",{
       headers:{
         "Authorization": `Token ${localStorage.getItem("goodwood_user")}`
     }
@@ -72,7 +72,7 @@ export const DropProvider = (props) => {
   }
 
   const getProfileById = (id) => {
-    return fetch(`http://localhost:8000/profiles/${id}`,{
+    return fetch(`https://good-wood-server.herokuapp.com/profiles/${id}`,{
       headers:{
         "Authorization": `Token ${localStorage.getItem("goodwood_user")}`
     }
