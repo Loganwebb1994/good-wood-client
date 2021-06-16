@@ -6,6 +6,9 @@ Back End Capstone
 Clone down the directory
 ```git@github.com:Loganwebb1994/good-wood-client.git```
 
+Install Node Packages
+
+```npm install```
 
 Run the server
 ```npm start```
